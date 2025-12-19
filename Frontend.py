@@ -28,7 +28,7 @@ client['Property_Area'] = st.selectbox("Propriété_Zone", ["Urban", "Semiurban"
 
 # Bouton de prédiction
 if st.button("Résultat d'éligibilité"):
-    url = "https://api-pret-bancaire.onrender.com"  # ton API Flask
+    url = "https://api-pret-bancaire.onrender.com/predict"  # ton API Flask
     headers = {"Content-Type": "application/json"}
     response = requests.post(url, data=json.dumps(client), headers=headers)
     
@@ -43,3 +43,4 @@ if st.button("Résultat d'éligibilité"):
         
     else:
         st.error("Erreur lors de la communication avec l’API")
+
