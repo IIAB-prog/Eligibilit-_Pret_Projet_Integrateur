@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import json
 
-st.title("Prédicteur d'éligibilité au prêt")
+st.title("Prédicteur d'éligibilité au prêt bancaire")
 
 # Formulaire client
 # Formulaire client
@@ -43,4 +43,5 @@ if st.button("Résultat d'éligibilité"):
         
     else:
         st.error("Erreur lors de la communication avec l’API")
+
 
