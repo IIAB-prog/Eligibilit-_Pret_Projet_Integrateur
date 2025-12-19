@@ -1,6 +1,7 @@
 import streamlit as st
-import requests
-import json
+
+from Backend import predict_loan
+
 
 st.title("Prédicteur d'éligibilité au prêt")
 
@@ -28,18 +29,20 @@ client['Property_Area'] = st.selectbox("Propriété_Zone", ["Urban", "Semiurban"
 
 # Bouton de prédiction
 if st.button("Résultat d'éligibilité"):
-    url = "http://127.0.0.1:5000/predict"  # ton API Flask
-    headers = {"Content-Type": "application/json"}
-    response = requests.post(url, data=json.dumps(client), headers=headers)
-    
-    if response.status_code == 200:
-        result = response.json()
-        loan_status = result['Loan_Status']
-        
+    try:
+        loan_status = predict_loan(client)
+
         if loan_status == 'Y':
-            st.markdown(f"<div style='padding:10px; background-color:green; color:white; border-radius:5px; text-align:center;'>Eligible à un prêt</div>", unsafe_allow_html=True)
+            st.markdown(
+                "<div style='padding:10px; background-color:green; color:white; border-radius:5px; text-align:center;'>Eligible à un prêt</div>",
+                unsafe_allow_html=True
+            )
         else:
-            st.markdown(f"<div style='padding:10px; background-color:red; color:white; border-radius:5px; text-align:center;'>Non éligible</div>", unsafe_allow_html=True)
-        
-    else:
-        st.error("Erreur lors de la communication avec l’API")
+            st.markdown(
+                "<div style='padding:10px; background-color:red; color:white; border-radius:5px; text-align:center;'>Non éligible</div>",
+                unsafe_allow_html=True
+            )
+
+    except Exception as e:
+        st.error(f"Erreur lors de la prédiction : {e}")
+
