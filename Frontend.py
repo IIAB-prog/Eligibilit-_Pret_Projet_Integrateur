@@ -14,7 +14,7 @@ def display_logo(file_path):
             unsafe_allow_html=True
         )
 
-display_logo("logo.png")
+display_logo("logo1.png")
 st.title("Prédicteur d'éligibilité au prêt bancaire")
 
 # =========================
@@ -185,6 +185,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
