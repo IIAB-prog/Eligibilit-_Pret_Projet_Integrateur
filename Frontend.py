@@ -2,31 +2,21 @@ import streamlit as st
 import requests
 import json
 
-
-import base64
-
-# =========================
-# Couleur de fond gris
-# =========================
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: black;  /* gris clair */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 def display_logo(file_path):
     with open(file_path, "rb") as f:
         data = f.read()
         encoded = base64.b64encode(data).decode()
         st.markdown(
             f'''
-            <img src="data:image/png;base64,{encoded}" width="150"
-            style="display:block; margin-left:auto; margin-right:auto;"><br>
+            <div style="
+                background-color: #f0f0f0; 
+                display: inline-block; 
+                padding: 20px; 
+                border-radius: 10px; 
+                text-align: center;
+                margin-bottom: 20px;">
+                <img src="data:image/png;base64,{encoded}" width="150">
+            </div>
             ''',
             unsafe_allow_html=True
         )
@@ -206,6 +196,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
