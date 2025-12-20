@@ -109,9 +109,9 @@ if st.button("Résultat d'éligibilité"):
                 f"""
                 <div style='padding:15px; background-color:green; color:white;
                 border-radius:8px; text-align:center;'>
-                ✅ <b>Éligible à un prêt bancaire</b><br>
+                <b>Éligible à un prêt bancaire</b><br>
                 <span style='font-size:14px;'>
-                Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
+                Probabilité : <b>{probability*100:.2f} %</b>
                 </span>
                 </div>
                 """,
@@ -122,9 +122,9 @@ if st.button("Résultat d'éligibilité"):
                 f"""
                 <div style='padding:15px; background-color:red; color:white;
                 border-radius:8px; text-align:center;'>
-                ❌ <b>Non éligible au prêt bancaire</b><br>
+                <b>Non éligible au prêt bancaire</b><br>
                 <span style='font-size:14px;'>
-                Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
+                Probabilité : <b>{probability*100:.2f} %</b>
                 </span>
                 </div>
                 """,
@@ -132,3 +132,4 @@ if st.button("Résultat d'éligibilité"):
             )
     else:
         st.error("Erreur lors de la communication avec l’API")
+
