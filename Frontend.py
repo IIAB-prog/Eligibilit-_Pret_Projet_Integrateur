@@ -6,13 +6,20 @@ import base64
 st.markdown(
     """
     <style>
-    body {
-        background-color: #0077cc;  /* bleu */
+    /* Fond pour toute la page Streamlit */
+    .stApp {
+        background-color: #0077cc;
+        color: white; /* texte par défaut en blanc pour contraste */
     }
-    /* Facultatif : couleur du texte par défaut pour contraste */
-    .css-18e3th9 {
-        color: white;
 
+    /* Optionnel : changer le fond des conteneurs */
+    .css-1d391kg, .css-1v3fvcr, .css-1offfwp {
+        background-color: #0077cc;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 def display_logo(file_path):
     with open(file_path, "rb") as f:
         data = f.read()
@@ -212,11 +219,6 @@ if st.button("Envoyer le commentaire"):
         st.error("Impossible de contacter le serveur")
 
 
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 
 
