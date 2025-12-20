@@ -133,4 +133,46 @@ if st.button("Résultat d'éligibilité"):
     else:
         st.error("Erreur lors de la communication avec l’API")
 
+# =========================
+# Section Commentaires
+# =========================
+st.markdown("---")
+st.subheader("💬 Laissez-nous votre avis")
+
+commentaire = st.text_area(
+    "Votre commentaire",
+    placeholder="Donnez votre avis sur l'application, la prédiction, ou des améliorations souhaitées..."
+)
+
+note = st.slider(
+    "Note de satisfaction",
+    min_value=1,
+    max_value=5,
+    value=3
+)
+
+if st.button("Envoyer le commentaire"):
+    commentaire_data = {
+        "commentaire": commentaire,
+        "note": note
+    }
+
+    try:
+        response = requests.post(
+            "https://api-pret-bancaire.onrender.com/comment",
+            headers={"Content-Type": "application/json"},
+            data=json.dumps(commentaire_data),
+            timeout=10
+        )
+
+        if response.status_code == 200:
+            st.success("✅ Merci pour votre avis !")
+        else:
+            st.error("❌ Erreur lors de l’envoi du commentaire")
+
+    except Exception as e:
+        st.error("❌ Impossible de contacter le serveur")
+
+
+
 
