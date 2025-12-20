@@ -14,7 +14,7 @@ client = {}
 # =========================
 gender_label = st.selectbox(
     "Genre",
-    ["Homme", "Femme", "Personne morale"]
+    ["Homme", "Femme"]
 )
 
 gender_map = {
@@ -132,4 +132,5 @@ if st.button("Résultat d'éligibilité"):
             )
     else:
         st.error("Erreur lors de la communication avec l’API")
+
 
