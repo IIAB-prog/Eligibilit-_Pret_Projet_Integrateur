@@ -100,20 +100,32 @@ if st.button("Résultat d'éligibilité"):
         loan_status = result["Loan_Status"]
 
         if loan_status == "Y":
-            st.markdown(
-                "<div style='padding:10px; background-color:green; color:white; "
-                "border-radius:5px; text-align:center;'>"
-                "✅ Éligible à un prêt bancaire"
-                "</div>",
-                unsafe_allow_html=True
-            )
-        else:
-            st.markdown(
-                "<div style='padding:10px; background-color:red; color:white; "
-                "border-radius:5px; text-align:center;'>"
-                "❌ Non éligible au prêt bancaire"
-                "</div>",
-                unsafe_allow_html=True
-            )
+    st.markdown(
+        f"""
+        <div style='padding:15px; background-color:green; color:white;
+        border-radius:8px; text-align:center;'>
+        <b>Éligible à un prêt bancaire</b><br>
+        <span style='font-size:14px;'>
+        Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
+        </span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.markdown(
+        f"""
+        <div style='padding:15px; background-color:red; color:white;
+        border-radius:8px; text-align:center;'>
+        <b>Non éligible au prêt bancaire</b><br>
+        <span style='font-size:14px;'>
+        Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
+        </span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
     else:
         st.error("Erreur lors de la communication avec l’API")
+
