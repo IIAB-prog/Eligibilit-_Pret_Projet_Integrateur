@@ -1,46 +1,29 @@
-import streamlit as st
-import requests
-import json
-
-st.title("Prédicteur d'éligibilité au prêt bancaire")
-
-client = {}
-
-# =========================
-# GENRE (FR affiché / EN stocké)
-# =========================
-gender_label = st.selectbox(
-    "Genre",
-    ["Homme", "Femme", "Personne morale"]
-)
-
-gender_map = {
-    "Homme": "Male",
-    "Femme": "Female",
-    "Personne morale": "Morale"
-}
-client["Gender"] = gender_map[gender_label]
-
-# =========================
-# Champs conditionnels
-# =========================
-if client["Gender"] != "Morale":
-    married_label = st.selectbox("Marié(e)", ["Oui", "Non"])
-    client["Married"] = "Yes" if married_label == "Oui" else "No"
-
-    education_label = st.selectbox(
-        "Niveau d’éducation",
-        ["Diplômé", "Non diplômé"]
+if loan_status == "Y":
+    st.markdown(
+        f"""
+        <div style='padding:15px; background-color:green; color:white;
+        border-radius:8px; text-align:center;'>
+        <b>Éligible à un prêt bancaire</b><br>
+        <span style='font-size:14px;'>
+        Probabilité : <b>{probability*100:.2f} %</b>
+        </span>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
-    client["Education"] = "Graduate" if education_label == "Diplômé" else "Not Graduate"
-
-    self_employed_label = st.selectbox(
-        "Travailleur indépendant(e)",
-        ["Oui", "Non"]
+else:
+    st.markdown(
+        f"""
+        <div style='padding:15px; background-color:red; color:white;
+        border-radius:8px; text-align:center;'>
+    <b>Non éligible au prêt bancaire</b><br>
+        <span style='font-size:14px;'>
+        Probabilité : <b>{probability*100:.2f} %</b>
+        </span>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
-    client["Self_Employed"] = "Yes" if self_employed_label == "Oui" else "No"
-
-# =========================
 # Champs toujours visibles
 # =========================
 client["Dependents"] = st.selectbox(
@@ -117,3 +100,4 @@ if st.button("Résultat d'éligibilité"):
             )
     else:
         st.error("Erreur lors de la communication avec l’API")
+
