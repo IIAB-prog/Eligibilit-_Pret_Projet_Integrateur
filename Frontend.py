@@ -4,6 +4,9 @@ import json
 
 st.title("Prédicteur d'éligibilité au prêt bancaire")
 
+# =========================
+# Initialisation du client
+# =========================
 client = {}
 
 # =========================
@@ -97,38 +100,35 @@ if st.button("Résultat d'éligibilité"):
 
     if response.status_code == 200:
         result = response.json()
+
         loan_status = result["Loan_Status"]
+        probability = result.get("Probability", 0)
 
         if loan_status == "Y":
             st.markdown(
-            f"""
-             <div style='padding:15px; background-color:green; color:white;
-             border-radius:8px; text-align:center;'>
-             <b>Éligible à un prêt bancaire</b><br>
-             <span style='font-size:14px;'>
-             Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
-             </span>
-             </div>
-             """,
-             unsafe_allow_html=True
-         )
+                f"""
+                <div style='padding:15px; background-color:green; color:white;
+                border-radius:8px; text-align:center;'>
+                ✅ <b>Éligible à un prêt bancaire</b><br>
+                <span style='font-size:14px;'>
+                Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
+                </span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
         else:
-             st.markdown(
-             f"""
-             <div style='padding:15px; background-color:red; color:white;
-             border-radius:8px; text-align:center;'>
-             <b>Non éligible au prêt bancaire</b><br>
-             <span style='font-size:14px;'>
-             Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
-             </span>
-             </div>
-             """,
-             unsafe_allow_html=True
-             )
-
-     else:
-           st.error("Erreur lors de la communication avec l’API")
-
-
-
-
+            st.markdown(
+                f"""
+                <div style='padding:15px; background-color:red; color:white;
+                border-radius:8px; text-align:center;'>
+                ❌ <b>Non éligible au prêt bancaire</b><br>
+                <span style='font-size:14px;'>
+                Probabilité d’acceptation : <b>{probability*100:.2f} %</b>
+                </span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+    else:
+        st.error("Erreur lors de la communication avec l’API")
