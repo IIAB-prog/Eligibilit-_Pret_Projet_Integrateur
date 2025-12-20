@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 import json
 
+import base64
+
 def display_logo(file_path):
     with open(file_path, "rb") as f:
         data = f.read()
@@ -196,6 +198,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
