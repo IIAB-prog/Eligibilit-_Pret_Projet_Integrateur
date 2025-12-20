@@ -8,7 +8,7 @@ st.markdown(
     <style>
     /* Fond pour toute la page Streamlit */
     .stApp {
-        background-color: gray;
+        background-color: white;
         color: white; /* texte par défaut en blanc pour contraste */
     }
 
@@ -36,7 +36,7 @@ def display_logo(file_path):
                 text-align: center;
                 width: fit-content;
                 margin-bottom: 20px;">
-                <img src="data:image/png;base64,{encoded}" ">
+                <img src="data:image/png;base64,{encoded}" width=300">
              </div>
             ''',
             unsafe_allow_html=True
@@ -217,6 +217,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
