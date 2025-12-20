@@ -10,11 +10,18 @@ def display_logo(file_path):
         data = f.read()
         encoded = base64.b64encode(data).decode()
         st.markdown(
-            f'<img src="data:image/png;base64,{encoded}" width="150">',
+            f'''
+            <img src="data:image/png;base64,{encoded}" width="150"
+            style="display:block; margin-left:auto; margin-right:auto;"><br>
+            ''',
             unsafe_allow_html=True
         )
 
 display_logo("logo.png")
+
+# Saut de ligne supplémentaire (optionnel)
+st.markdown("<br>", unsafe_allow_html=True)
+
 # st.title("Prédicteur d'éligibilité au prêt bancaire")
 
 # =========================
@@ -185,6 +192,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
