@@ -3,7 +3,20 @@ import requests
 import json
 
 import base64
-
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #0077cc;  /* bleu */
+    }
+    /* Facultatif : couleur du texte par défaut pour contraste */
+    .css-18e3th9 {
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 def display_logo(file_path):
     with open(file_path, "rb") as f:
         data = f.read()
@@ -201,6 +214,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
