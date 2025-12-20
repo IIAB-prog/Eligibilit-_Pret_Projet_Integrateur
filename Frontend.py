@@ -5,7 +5,7 @@ import json
 # =========================
 # Logo
 # =========================
-st.image("logo.png", width=150)  # largeur ajustable
+#st.image("logo.png", width=150)  # largeur ajustable
 
 # =========================
 # Titre
@@ -318,6 +318,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
