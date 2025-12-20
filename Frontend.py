@@ -15,7 +15,7 @@ def display_logo(file_path):
         )
 
 display_logo("logo.png")
-st.title("Prédicteur d'éligibilité au prêt bancaire")
+# st.title("Prédicteur d'éligibilité au prêt bancaire")
 
 # =========================
 # Initialisation du client
@@ -185,6 +185,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
