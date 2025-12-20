@@ -3,11 +3,18 @@ import requests
 import json
 
 
-# =========================
-# Logo
-# =========================
-#st.image("logo.png",width=150)  # largeur ajustable
+import base64
 
+def display_logo(file_path):
+    with open(file_path, "rb") as f:
+        data = f.read()
+        encoded = base64.b64encode(data).decode()
+        st.markdown(
+            f'<img src="data:image/png;base64,{encoded}" width="150">',
+            unsafe_allow_html=True
+        )
+
+display_logo("logo.png")
 st.title("Prédicteur d'éligibilité au prêt bancaire")
 
 # =========================
@@ -178,6 +185,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
