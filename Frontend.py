@@ -6,7 +6,7 @@ import json
 # =========================
 # Logo
 # =========================
-#st.image("logo.png")  # largeur ajustable
+#st.image("logo.png",width=150)  # largeur ajustable
 
 st.title("Prédicteur d'éligibilité au prêt bancaire")
 
@@ -178,6 +178,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
