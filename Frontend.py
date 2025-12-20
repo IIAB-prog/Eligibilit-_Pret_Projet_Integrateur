@@ -3,6 +3,22 @@ import requests
 import json
 
 import base64
+st.markdown(
+            f'''
+            <div style="
+                background-color: blue; 
+                
+                
+                display: block; 
+                margin-left: auto; 
+                margin-right: auto;
+                text-align: center;
+                width: fit-content;
+                ">
+             </div>
+            ''',
+            unsafe_allow_html=True
+)
 
 def display_logo(file_path):
     with open(file_path, "rb") as f:
@@ -201,6 +217,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
