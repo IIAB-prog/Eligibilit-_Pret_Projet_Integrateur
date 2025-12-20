@@ -8,7 +8,7 @@ st.markdown(
     <style>
     /* Fond pour toute la page Streamlit */
     .stApp {
-        background-color: #0077cc;
+        background-color: blue;
         color: white; /* texte par défaut en blanc pour contraste */
     }
 
@@ -217,6 +217,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
