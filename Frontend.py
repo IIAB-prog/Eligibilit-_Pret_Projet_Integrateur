@@ -11,7 +11,7 @@ def display_logo(file_path):
         st.markdown(
             f'''
             <div style="
-                background-color: #f0f0f0; 
+                background-color: blue; 
                 padding: 20px; 
                 border-radius: 10px; 
                 display: block; 
@@ -20,7 +20,7 @@ def display_logo(file_path):
                 text-align: center;
                 width: fit-content;
                 margin-bottom: 20px;">
-                <img src="data:image/png;base64,{encoded}" width="150">
+                <img src="data:image/png;base64,{encoded}" ">
              </div>
             ''',
             unsafe_allow_html=True
@@ -201,6 +201,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
