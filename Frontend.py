@@ -12,7 +12,7 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #f0f0f0;  /* gris clair */
+        background-color: black;  /* gris clair */
     }
     </style>
     """,
@@ -206,6 +206,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
