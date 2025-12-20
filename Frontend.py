@@ -126,7 +126,8 @@ if st.button("Résultat d'éligibilité"):
              unsafe_allow_html=True
              )
 
-         else:
+        else:
              st.error("Erreur lors de la communication avec l’API")
+
 
 
