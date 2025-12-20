@@ -3,23 +3,23 @@ import requests
 import json
 
 import base64
-st.markdown(
-    """
-    <style>
-    /* Fond pour toute la page Streamlit */
-    .stApp {
-        background-color: white;
-        color: white; /* texte par défaut en blanc pour contraste */
-    }
+#st.markdown(
+#    """
+#    <style>
+#    /* Fond pour toute la page Streamlit */
+#    .stApp {
+#        background-color: white;
+#        color: white; /* texte par défaut en blanc pour contraste */
+#    }
 
-    /* Optionnel : changer le fond des conteneurs */
-    .css-1d391kg, .css-1v3fvcr, .css-1offfwp {
-        background-color: #0077cc;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+#    /* Optionnel : changer le fond des conteneurs */
+#    .css-1d391kg, .css-1v3fvcr, .css-1offfwp {
+#        background-color: #0077cc;
+#    }
+#    </style>
+#    """,
+#    unsafe_allow_html=True
+#)
 def display_logo(file_path):
     with open(file_path, "rb") as f:
         data = f.read()
@@ -217,6 +217,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
