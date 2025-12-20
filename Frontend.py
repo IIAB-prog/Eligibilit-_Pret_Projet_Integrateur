@@ -19,8 +19,8 @@ def display_logo(file_path):
                 margin-right: auto;
                 text-align: center;
                 width: auto;
-               # margin-bottom: 20px;">
-                <img src="data:image/png;base64,{encoded}" width="150">
+               
+                <img src="data:image/png;base64,{encoded}" >
             </div>
             ''',
             unsafe_allow_html=True
@@ -201,6 +201,7 @@ if st.button("Envoyer le commentaire"):
 
     except Exception as e:
         st.error("Impossible de contacter le serveur")
+
 
 
 
