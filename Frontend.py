@@ -166,12 +166,13 @@ if st.button("Envoyer le commentaire"):
         )
 
         if response.status_code == 200:
-            st.success("✅ Merci pour votre avis !")
+            st.success("Merci pour votre avis !")
         else:
-            st.error("❌ Erreur lors de l’envoi du commentaire")
+            st.error("Erreur lors de l’envoi du commentaire")
 
     except Exception as e:
-        st.error("❌ Impossible de contacter le serveur")
+        st.error("Impossible de contacter le serveur")
+
 
 
 
